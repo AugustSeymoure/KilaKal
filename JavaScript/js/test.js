@@ -1,23 +1,34 @@
-/*FIXIT: Реакция на отмену в prompt
+/*FIXME: Реакция на отмену в prompt
 Увеличить количество ответов на prompt(через toLowCase())
 Добавить возможность проверки на ожирение и болезненную худобу
 */
+function Start(){
+let start = prompt(`Здравствуйте, какой из представленных функций Вы бы хотели воспользоваться?
+1 - Формула подсчета ккал Миффлина Сан-Жеора.
+2 - Формула подсчеа ккал Харрис - Бенедикта.
+`)
+if (start == '1')SJ();
+else if (start == '2') HB();
+else {alert("Такой функции пока нет")}
+};
 let result = {};
 
 function SJ(){
   alert("Здравствуйте, данное дополнение поможет Вам подсчить дневную норму ккал по формуле Сан - Жеора!");
   alert("Для этого, введите пожалуйста данные, в соответствии с запрашиваемыми");
   let sex = prompt("Вы мужчина или женщина?");
-  if (sex == "Мужчина") {
+  sex = sex.toLowerCase();
+  if (sex == "мужчина") {
     result.sumResult = true;
-    Male();
+    MaleSJ();
    }
-  else {result.sumResult = false;
-    Female();
-  };
+  else if(sex == 'женщина') {result.sumResult = false;
+    FemaleSJ();
+  }
+  else {alert('Информация введена неправильно!')};
 }
 
-function Male(){
+function MaleSJ(){
   let weigth = prompt("Ваш вес в килограммах(например 65)", );
   let heigth = prompt("Ваш рост в сантиметрах(Например 170)", );
   let age = prompt("Ваш возраст в годах(Например 30)");
@@ -28,7 +39,7 @@ function Male(){
   
 }
 
-function Female(){
+function FemaleSJ(){
   let weigth = prompt("Ваш вес в килограммах(например 65)", );
   let heigth = prompt("Ваш рост в сантиметрах(Например 170)", );
   let age = prompt("Ваш возраст в годах(Например 30)");
@@ -57,4 +68,27 @@ function Activity(){
   if (question == "Да") SJ();
 }
 
-SJ();
+
+let resultHB = {};
+
+function HB(){
+  alert('Здравствуйте, Вас приветствует формула подсчета ккал Харриса-Бенедикта.');
+  alert("Для продолжения работы, нам необходима получить нужную информацию о Вашем теле.");
+  let sex = prompt("Вы мужчина или женщина?", "");
+  sex = sex.toLowerCase();
+  if (sex == 'мужчина')MaleHB();
+  else if(sex == 'женщина'){FemaleHB()}
+  else {
+    alert("Информация введена неверно!");
+  }
+}
+
+function MaleHB(){
+  let weigth = prompt("Введите Ваш вес (например 50)");
+  let heigth = prompt("Введите Ваш рост (например 180)");
+};
+
+
+
+
+Start();
