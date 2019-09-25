@@ -1,4 +1,4 @@
-/*FIXME: Реакция на отмену в prompt
+/*FIXME: Реакция на отмену в prompt --?
 Увеличить количество ответов на prompt(через toLowCase())
 Добавить возможность проверки на ожирение и болезненную худобу
 */
@@ -64,7 +64,8 @@ function Activity(){
   Если же Вы желаете похудеть медленно и безопасно - ${Math.round(sum - 250)} ккал.
   В случае необходимости в быстрой потере веса - ${Math.round(sum - 500)} ккал.`);
   let question = prompt("Желаете ли еще раз воспользоваться формулой Миффлина Сан-Жеора прямо сейчас?", "Да или нет");
-  if (question == "Да") SJ();
+  if (question == "Да") Start();
+  else window.stop();
 }
 
 
@@ -75,8 +76,12 @@ function HB(){
   alert("Для продолжения работы, нам необходима получить нужную информацию о Вашем теле.");
   let sex = prompt("Вы мужчина или женщина?", "");
   sex = sex.toLowerCase();
-  if (sex == 'мужчина')MaleHB();
-  else if(sex == 'женщина'){FemaleHB()}
+  if (sex == 'мужчина'){
+    result.sumResult = true;
+    MaleHB();}
+  else if(sex == 'женщина'){
+    result.sumResult = false;
+    FemaleHB();}
   else {
     alert("Информация введена неверно!");
   }
@@ -85,7 +90,23 @@ function HB(){
 function MaleHB(){
   let weigth = prompt("Введите Ваш вес (например 50)");
   let heigth = prompt("Введите Ваш рост (например 180)");
+  let age = prompt("Введите Ваш возраст(например 18)");
+  var endMale = 88.362 + (13.397*weigth)+(4.799*heigth)-(5.677*age);
+  result.maleResult = endMale;
+  alert(`Таким образом, для нормального функционирования организма в состоянии покоя Вам потребуется ${Math.round(endMale)} калл`);
+  Activity();
+  
 };
+
+function FemaleHB(){
+  let weigth = prompt("Введите Ваш вес (например 50)");
+  let heigth = prompt("Введите Ваш рост (например 180)");
+  let age = prompt("Введите Ваш возраст(например 18)");
+  var endFemale = 447.593 + (9.247*weigth)+(3.098*heigth)-(4.330*age);
+  result.femaleResult = endFemale;
+  alert(`Таким образом, для нормального функционирования организма в состоянии покоя Вам потребуется ${Math.round(endFemale)} калл`);
+  Activity();
+}
 
 
 
