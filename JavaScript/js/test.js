@@ -1,5 +1,5 @@
 /*FIXME: Реакция на отмену в prompt --?
-Увеличить количество ответов на prompt(через toLowCase())
+Увеличить количество ответов на prompt(через toLowCase()) -- +
 Добавить возможность проверки на ожирение и болезненную худобу
 */
 function Start(){
@@ -18,11 +18,11 @@ function SJ(){
   alert("Для этого, введите пожалуйста данные, в соответствии с запрашиваемыми");
   let sex = prompt("Вы мужчина или женщина?");
   sex = sex.toLowerCase();
-  if (sex == "мужчина") {
+  if (sex == "мужчина"|| sex == 'парень'|| sex == 'мальчик') {
     result.sumResult = true;
     MaleSJ();
    }
-  else if(sex == 'женщина') {result.sumResult = false;
+  else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка') {result.sumResult = false;
     FemaleSJ();
   }
   else {alert('Информация введена неправильно!')};
