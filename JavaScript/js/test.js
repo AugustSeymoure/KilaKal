@@ -6,9 +6,11 @@ function Start(){
 let start = prompt(`Здравствуйте, какой из представленных функций Вы бы хотели воспользоваться?
 1 - Формула подсчета ккал Миффлина Сан-Жеора.
 2 - Формула подсчета ккал Харрис - Бенедикта.
+3 - Формула для подсчета индекса Кетле.
 `)
 if (start == '1')SJ();
 else if (start == '2') HB();
+else if (start == '3') PO();
 else {alert("Такой функции пока нет")}
 };
 let result = {};
@@ -18,13 +20,13 @@ function SJ(){
   alert("Для этого, введите пожалуйста данные, в соответствии с запрашиваемыми");
   let sex = prompt("Вы мужчина или женщина?");
   sex = sex.toLowerCase();
-  if (sex == "мужчина"|| sex == 'парень'|| sex == 'мальчик') {
+  if (sex == "мужчина"|| sex == 'парень'|| sex == 'мальчик'|| sex == 'юноша') {
     result.sumResult = true;
     MaleSJ();
    }
-  else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка') {result.sumResult = false;
+  else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка'|| sex == 'девчонка') {result.sumResult = false;
     FemaleSJ();
-  }
+  }//else if(sex == false||sex == undefined|| sex == null){}
   else {alert('Информация введена неправильно!')};
 }
 
@@ -70,19 +72,18 @@ function Activity(){
 }
 
 
-let resultHB = {};
-
 function HB(){
   alert('Здравствуйте, Вас приветствует формула подсчета ккал Харриса-Бенедикта.');
   alert("Для продолжения работы, нам необходима получить нужную информацию о Вашем теле.");
   let sex = prompt("Вы мужчина или женщина?", "");
   sex = sex.toLowerCase();
-  if (sex == 'мужчина'){
+  if (sex == 'мужчина'|| sex == 'парень'|| sex == 'мальчик'|| sex == 'юноша'){
     result.sumResult = true;
     MaleHB();}
-  else if(sex == 'женщина'){
+  else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка'|| sex == 'девчонка'){
     result.sumResult = false;
     FemaleHB();}
+    //else if(sex == false||sex == undefined|| sex == null){}
   else {
     alert("Информация введена неверно!");
   }
@@ -110,6 +111,42 @@ function FemaleHB(){
 }
 
 
+
+function PO(){
+  alert("Здравствуйте, Вас приветствует программа для проверки степени ожирения");
+  alert("Для продолжения работы нам погнадобятся некоторые данные касательно Вашего тела")
+  let sex = prompt("Вы мужчина или женщина?");
+  sex = sex.toLowerCase();
+  if (sex == 'мужчина'|| sex == 'парень'|| sex == 'мальчик'|| sex == 'юноша'){MalePO()}
+  else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка'|| sex == 'девчонка'){FemalePO()}
+  //else if(sex == false||sex == undefined|| sex == null){}
+  else {alert('Информация введена неправильно!')};
+}
+
+function MalePO(){
+  let weigth = prompt("Введите Ваш вес (например 50)");
+  let heigth = prompt("Введите Ваш рост (например 1.80)");
+  let sum = weigth/(heigth*2);
+  alert(`Ваш индекс равен ${sum}`);
+  if(sum>=30 && sum<=32.2)alert("У Вас первая степень ожирения.");
+  else if(sum>=32.3 && sum<=37.2)alert("У Вас вторая стадия ожирения.");
+  else if(sum>=37.3 && sum<=49.7)alert("У Вас третья стадия ожирения.");
+  else if(sum > 49.7)alert("У Вас четвертая стадия ожирения");
+  else alert("У Вас нет ожирения!");
+}
+
+
+function FemalePO(){
+  let weigth = prompt("Введите Ваш вес (например 50)");
+  let heigth = prompt("Введите Ваш рост (например 1.60)");
+  let sum = weigth/(heigth*2);
+  alert(`Ваш индекс равен ${sum}`);
+  if(sum>=28 && sum<=30.7)alert("У Вас первая степень ожирения.");
+  else if(sum>=30.8 && sum<=35.4)alert("У Вас вторая стадия ожирения.");
+  else if(sum>=35.5 && sum<=47.3)alert("У Вас третья стадия ожирения.");
+  else if(sum > 47.3)alert("У Вас четвертая стадия ожирения");
+  else alert("У Вас нет ожирения!");
+}
 
 
 Start();
