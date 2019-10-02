@@ -1,6 +1,6 @@
-/*FIXME: Реакция на отмену в prompt --?
+/*FIXME: Реакция на отмену в prompt -- ?
 Увеличить количество ответов на prompt(через toLowCase()) -- +
-Добавить возможность проверки на ожирение и болезненную худобу
+Добавить возможность проверки на ожирение и болезненную худобу -- +
 */
 function Start(){
 let start = prompt(`Здравствуйте, какой из представленных функций Вы бы хотели воспользоваться?
@@ -26,7 +26,7 @@ function SJ(){
    }
   else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка'|| sex == 'девчонка') {result.sumResult = false;
     FemaleSJ();
-  }//else if(sex == false||sex == undefined|| sex == null){}
+  }else if(sex == false||sex == undefined|| sex == null){break}
   else {alert('Информация введена неправильно!')};
 }
 
@@ -83,7 +83,7 @@ function HB(){
   else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка'|| sex == 'девчонка'){
     result.sumResult = false;
     FemaleHB();}
-    //else if(sex == false||sex == undefined|| sex == null){}
+    else if(sex == false||sex == undefined|| sex == null){break}
   else {
     alert("Информация введена неверно!");
   }
