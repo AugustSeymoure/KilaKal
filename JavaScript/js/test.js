@@ -83,7 +83,7 @@ function HB(){
   else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка'|| sex == 'девчонка'){
     result.sumResult = false;
     FemaleHB();}
-    else if(sex == false||sex == undefined|| sex == null){break}
+
   else {
     alert("Информация введена неверно!");
   }
