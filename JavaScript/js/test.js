@@ -26,7 +26,7 @@ function SJ(){
    }
   else if(sex == 'женщина'|| sex == 'девушка'|| sex == 'девочка'|| sex == 'девчонка') {result.sumResult = false;
     FemaleSJ();
-  }else if(sex == false||sex == undefined|| sex == null){break}
+  }
   else {alert('Информация введена неправильно!')};
 }
 
